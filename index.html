@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>Presensi — QR Kelas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://script.google.com/macros/s/AKfycbyXsZ6IVJQ9XP0XisG2ewB4EosgvY2O2xTwB3wHamyxiLASbxdee7Z6ANElItyKDE4aEw/exec" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.8/html5-qrcode.min.js"></script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<section class="landing-page" id="landingPage">
+  <nav class="landing-nav">
+    <a class="landing-brand" href="#beranda" aria-label="Presensi Kelas">
+      <span class="landing-brand-icon"><i class="fas fa-qrcode"></i></span>
+      <span>Presensi Kelas</span>
+    </a>
+    <div class="landing-links">
+      <a href="#beranda">Beranda</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#cara-kerja">Cara Kerja</a>
+    </div>
+    <button class="landing-login" type="button" onclick="showLogin()"><span>Masuk</span><i class="fas fa-arrow-right"></i></button>
+  </nav>
+
+  <main class="landing-main">
+    <section class="landing-hero" id="beranda">
+      <div class="landing-copy landing-reveal">
+        <div class="landing-badge"><span></span>Sistem Presensi Kelas</div>
+        <h1>Presensi Kelas<br><em>Lebih Mudah</em> dengan QR Code</h1>
+        <p>Kelola kehadiran mahasiswa dengan cepat, rapi, dan terintegrasi dalam satu sistem.</p>
+        <div class="landing-actions">
+          <button class="landing-primary" type="button" onclick="showLogin()">Masuk ke Dashboard <i class="fas fa-arrow-right"></i></button>
+          <a class="landing-secondary" href="#cara-kerja"><i class="fas fa-play"></i> Pelajari Sistem</a>
+        </div>
+        <div class="landing-trust"><span><i class="fas fa-circle-check"></i> Terintegrasi Google Sheets</span><span><i class="fas fa-shield-halved"></i> Akses terkontrol</span></div>
+      </div>
+      <div class="landing-preview landing-reveal">
+        <div class="preview-glow"></div>
+        <div class="preview-window">
+          <div class="preview-top"><span class="preview-dots"><i></i><i></i><i></i></span><span class="preview-label">PRESENSI / OVERVIEW</span><span class="preview-signal"><i class="fas fa-wifi"></i> Online</span></div>
+          <div class="preview-heading"><div><small>Ringkasan hari ini</small><strong>Presensi Kelas</strong></div><span class="preview-avatar">AD</span></div>
+          <div class="preview-stats"><div class="preview-stat main-stat"><div class="preview-ring"><span id="landingPersen">…</span></div><div><small></small>Kehadiran</small><b id="landingHadir">…</b><em>+12% minggu ini</em></div></div><div class="preview-stat"><small>Total mahasiswa</small><b id="landingTotalMhs">…</b><span><i class="fas fa-users"></i> Terdaftar</span></div></div>
+          <div class="preview-qr-row"><div class="preview-qr" aria-hidden="true"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div><div><small>Status presensi</small><strong>QR siap digunakan</strong><span><i class="fas fa-circle-check"></i> Sistem aktif</span></div><i class="fas fa-arrow-up-right-from-square preview-arrow"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="landing-section" id="fitur">
+      <div class="landing-section-heading"><div><span class="landing-overline">Satu ruang untuk semuanya</span><h2>Fitur Utama</h2></div><p>Alur presensi akademik yang ringkas, jelas, dan mudah dipantau.</p></div>
+      <div class="feature-grid">
+        <article class="feature-card"><div class="feature-icon sage"><i class="fas fa-qrcode"></i></div><span class="feature-number">01</span><h3>QR Code Presensi</h3><p>Mahasiswa dapat melakukan presensi melalui QR Code dengan cepat.</p></article>
+        <article class="feature-card"><div class="feature-icon beige"><i class="fas fa-users"></i></div><span class="feature-number">02</span><h3>Data Mahasiswa</h3><p>Kelola dan tampilkan data mahasiswa dengan rapi.</p></article>
+        <article class="feature-card"><div class="feature-icon olive"><i class="fas fa-clock-rotate-left"></i></div><span class="feature-number">03</span><h3>Riwayat Presensi</h3><p>Pantau riwayat kehadiran berdasarkan tanggal.</p></article>
+        <article class="feature-card"><div class="feature-icon clay"><i class="fas fa-table-cells-large"></i></div><span class="feature-number">04</span><h3>Google Sheets</h3><p>Data mahasiswa terhubung dengan Google Sheets.</p></article>
+      </div>
+    </section>
+
+    <section class="landing-section workflow-section" id="cara-kerja">
+      <div class="landing-section-heading"><div><span class="landing-overline">Empat langkah sederhana</span><h2>Cara Kerja Presensi</h2></div><p>Dari membuka sistem sampai data tersimpan, semuanya terasa ringan.</p></div>
+      <div class="workflow-grid"><div class="workflow-step"><span>01</span><i class="fas fa-door-open"></i><b>Buka Sistem</b><small>Masuk ke portal kelas</small></div><div class="workflow-line"></div><div class="workflow-step"><span>02</span><i class="fas fa-camera"></i><b>Scan QR</b><small>Arahkan kamera ke QR</small></div><div class="workflow-line"></div><div class="workflow-step"><span>03</span><i class="fas fa-user-check"></i><b>Verifikasi</b><small>Data dikenali otomatis</small></div><div class="workflow-line"></div><div class="workflow-step"><span>04</span><i class="fas fa-check-double"></i><b>Tersimpan</b><small>Presensi tercatat rapi</small></div></div>
+    </section>
+
+    <section class="landing-cta"><div><span class="landing-overline">Mulai hari ini</span><h2>Siap mengelola presensi kelas?</h2><p>Bangun pengalaman presensi yang lebih tertib untuk seluruh kelas.</p></div><button class="landing-primary" type="button" onclick="showLogin()">Masuk ke Dashboard <i class="fas fa-arrow-right"></i></button></section>
+  </main>
+  <footer class="landing-footer"><span>© 2026 Presensi Kelas</span><span>Modern Academic Attendance System</span></footer>
+</section>
+
+<!-- Login baru: tidak memakai storage presensi mahasiswa. -->
+<section class="login-screen" id="loginScreen">
+  <div class="login-art" aria-hidden="true">
+    <span class="art-line line-one"></span><span class="art-line line-two"></span>
+    <span class="art-dot dot-one"></span><span class="art-dot dot-two"></span>
+  </div>
+  <div class="login-panel">
+    <div class="brand-mark"><i class="fas fa-qrcode"></i></div>
+    <div class="login-kicker">Portal akademik</div>
+    <h1>Presensi Kelas</h1>
+    <p class="login-subtitle">Sistem Presensi Mahasiswa</p>
+    <form id="loginForm" class="login-form" novalidate>
+      <label for="loginUsername">Username atau email</label>
+      <div class="field-wrap"><i class="fas fa-user"></i><input id="loginUsername" type="text" autocomplete="username" placeholder="Masukkan username" required></div>
+      <label for="loginPassword">Password</label>
+      <div class="field-wrap"><i class="fas fa-lock"></i><input id="loginPassword" type="password" autocomplete="current-password" placeholder="Masukkan password" required><button type="button" id="togglePassword" aria-label="Tampilkan password"><i class="fas fa-eye"></i></button></div>
+      <div class="login-options"><label class="remember"><input id="rememberLogin" type="checkbox"><span>Ingat saya</span></label><span class="demo-hint">Demo: admin / admin123</span></div>
+      <p class="login-error" id="loginError" role="alert"></p>
+      <button class="login-submit" type="submit"><span>Masuk ke dashboard</span><i class="fas fa-arrow-right"></i></button>
+    </form>
+  </div>
+</section>
+
+<div class="app is-hidden" id="dashboardApp">
+
+  <header class="topbar">
+    <div class="greeting">
+      <div class="eyebrow" id="greetEyebrow">Presensi Kelas / Overview</div>
+      <h1 id="greetTitle">Selamat datang 👋</h1>
+      <p class="topbar-subtitle">Kelola presensi mahasiswa dengan mudah</p>
+    </div>
+    <div class="topbar-actions">
+      <div class="conn-pill"><span class="dot checking" id="statusDot"></span><span id="statusLabel">Mengecek…</span></div>
+      <div class="user-avatar">AD</div>
+      <button class="logout-icon" onclick="logout()" title="Keluar"><i class="fas fa-arrow-right-from-bracket"></i></button>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== HOME ===================== -->
+    <section class="view active" id="view-home">
+      <div class="card hero">
+        <svg width="0" height="0"><defs><linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="#A8B89F"/><stop offset="100%" stop-color="#8B6F47"/>
+        </linearGradient></defs></svg>
+        <div class="ring-wrap">
+          <svg viewBox="0 0 160 160" width="160" height="160">
+            <circle class="ring-track" cx="80" cy="80" r="70"></circle>
+            <circle class="ring-progress" id="ringProgress" cx="80" cy="80" r="70" stroke-dasharray="440" stroke-dashoffset="440"></circle>
+          </svg>
+          <div class="ring-center">
+            <div class="num" id="ringNum">0%</div>
+            <div class="lbl">Hadir hari ini</div>
+          </div>
+        </div>
+        <div class="caption"><strong id="hadirCount">0</strong> dari <strong id="totalCount">0</strong> mahasiswa sudah presensi — <span id="todayDate">—</span></div>
+        <div class="stat-row">
+          <div class="stat-chip"><div class="stat-icon sage"><i class="fas fa-user-check"></i></div><div class="n" id="chipHadir">0</div><div class="l">Hadir hari ini</div></div>
+          <div class="stat-chip"><div class="stat-icon cream"><i class="fas fa-user-clock"></i></div><div class="n" id="chipBelum">0</div><div class="l">Belum hadir</div></div>
+          <div class="stat-chip"><div class="stat-icon brown"><i class="fas fa-users"></i></div><div class="n" id="chipTotal">0</div><div class="l">Total mahasiswa</div></div>
+        </div>
+      </div>
+
+      <div class="section-title">Aksi Cepat</div>
+      <div class="quick-actions">
+        <button onclick="switchView('scan')">
+          <div class="qa-icon sage"><i class="fas fa-qrcode"></i></div><span>Scan QR</span><small>Catat kehadiran</small>
+        </button>
+        <button onclick="switchView('generate')">
+          <div class="qa-icon cream"><i class="fas fa-id-card"></i></div><span>Buat QR</span><small>QR mahasiswa</small>
+        </button>
+        <button onclick="switchView('data')">
+          <div class="qa-icon brown"><i class="fas fa-users"></i></div><span>Mahasiswa</span><small>Kelola data</small>
+        </button>
+        <button onclick="exportCSV()">
+          <div class="qa-icon clay"><i class="fas fa-file-export"></i></div><span>Export</span><small>Unduh CSV</small>
+        </button>
+      </div>
+
+      <div class="section-title">
+        Riwayat Presensi Hari Ini
+        <span class="pill-btn" onclick="loadDataMahasiswa()"><i class="fas fa-rotate"></i> Refresh</span>
+      </div>
+      <div class="card">
+        <div class="timeline" id="timelineList" style="padding:6px 14px;">
+          <div class="empty-note"><i class="fas fa-clock-rotate-left"></i>Belum ada presensi hari ini</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SCAN ===================== -->
+    <section class="view" id="view-scan">
+      <div class="page-heading"><div><div class="eyebrow">Kamera aktif</div><h2>Scan QR Presensi</h2><p>Arahkan kamera ke QR Code mahasiswa</p></div><div class="page-icon"><i class="fas fa-camera"></i></div></div>
+      <div class="card scan-card">
+        <div class="scanner-area" id="scannerArea">
+          <div id="qr-reader"></div>
+          <div class="scan-overlay">
+            <div class="scan-frame">
+              <div class="corner corner-tl"></div><div class="corner corner-tr"></div>
+              <div class="corner corner-bl"></div><div class="corner corner-br"></div>
+              <div class="scan-line"></div>
+            </div>
+            <div class="scan-hint"><i class="fas fa-circle"></i><span id="scanStatusText">Arahkan ke QR Code</span></div>
+          </div>
+        </div>
+        <div class="scan-controls">
+          <button class="btn btn-main" id="btnStartScan" onclick="toggleScanner()">
+            <i class="fas fa-play"></i><span id="btnScanLabel">Mulai Scan</span>
+          </button>
+          <button class="btn btn-ghost" onclick="stopScanner()" title="Stop scan"><i class="fas fa-stop"></i></button>
+          <button class="btn btn-ghost" id="btnFlash" onclick="toggleFlash()"><i class="fas fa-bolt"></i></button>
+        </div>
+      </div>
+      <div class="section-title">Terakhir Discan</div>
+      <div class="card" style="padding:6px 14px;">
+        <div class="timeline" id="lastScanList">
+          <div class="empty-note"><i class="fas fa-qrcode"></i>Hasil scan akan muncul di sini</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== GENERATE ===================== -->
+    <section class="view" id="view-generate">
+      <div class="page-heading"><div><div class="eyebrow">Identitas digital</div><h2>Generate QR Mahasiswa</h2><p>Buat QR personal dari NIM terdaftar</p></div><div class="page-icon"><i class="fas fa-qrcode"></i></div></div>
+      <div class="card gen-card">
+        <div class="qr-input-panel">
+          <div class="gen-label"><i class="fas fa-id-card"></i><span>Generate QR</span></div>
+          <h3>Buat QR Code Mahasiswa</h3>
+          <p class="gen-description">Buat QR personal dari NIM terdaftar</p>
+          <label class="qr-input-label" for="qrNimInput">NIM Mahasiswa</label>
+          <div class="input-row">
+            <i class="fas fa-user-tag"></i><input type="text" id="qrNimInput" placeholder="Masukkan NIM" maxlength="12" />
+            <button onclick="generateQRCode()"><i class="fas fa-wand-magic-sparkles"></i><span>Buat QR</span></button>
+          </div>
+          <p class="qr-help"><i class="fas fa-circle-info"></i> Masukkan NIM mahasiswa yang terdaftar.</p>
+        </div>
+        <div class="qr-preview-panel">
+          <div class="qr-preview-heading"><span><i class="fas fa-qrcode"></i> QR Preview</span><small>Personal ID</small></div>
+          <div class="qr-result" id="qrPreview">
+            <img id="qrResultImage" src="" alt="QR Code" />
+            <div class="who" id="qrWho">—</div>
+            <div class="sub" id="qrSub">—</div>
+            <div class="actions">
+              <button class="act-dl" onclick="downloadQRCode()"><i class="fas fa-download"></i> Unduh QR</button>
+              <button class="act-close" onclick="closeQRPreview()"><i class="fas fa-xmark"></i> Tutup</button>
+            </div>
+          </div>
+          <div class="qr-empty"><div class="qr-empty-icon"><i class="fas fa-qrcode"></i></div><strong>QR Code akan muncul di sini</strong><span>Isi NIM lalu buat QR personal mahasiswa.</span></div>
+        </div>
+      </div>
+      <div class="section-title">Cara Pakai</div>
+      <div class="card usage-steps">
+        <div class="usage-step"><span>01</span><div><strong>Masukkan NIM</strong><small>Masukkan NIM mahasiswa yang sudah terdaftar.</small></div></div>
+        <div class="usage-step"><span>02</span><div><strong>Buat QR</strong><small>Sistem membuat QR Code personal mahasiswa.</small></div></div>
+        <div class="usage-step"><span>03</span><div><strong>Unduh &amp; Bagikan</strong><small>Unduh QR dan gunakan untuk proses presensi.</small></div></div>
+      </div>
+    </section>
+
+    <!-- ===================== DATA ===================== -->
+    <section class="view" id="view-data">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Data Akademik</div>
+          <h2>Data Mahasiswa</h2><p>Daftar mahasiswa terhubung ke Google Sheets</p>
+        </div>
+        <span class="count-badge" id="studentCountBadge">0</span>
+      </div>
+      <div class="search-row">
+        <div class="search-box">
+          <i class="fas fa-magnifying-glass"></i>
+          <input type="text" id="searchInput" placeholder="Cari nama atau NIM…" oninput="filterTable()" />
+        </div>
+        <button class="export-btn" onclick="exportCSV()" title="Export CSV"><i class="fas fa-file-export"></i></button>
+      </div>
+      <div class="card data-list" style="margin-top:12px;padding:6px 14px;">
+        <div id="loadingData" class="loading-row"><i class="fas fa-spinner fa-spin"></i> Memuat data…</div>
+        <div id="dataListInner" style="display:none;"></div>
+      </div>
+    </section>
+
+    <!-- ===================== RIWAYAT PRESENSI ===================== -->
+    <section class="view" id="view-history">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Presensi</div>
+          <h2>Riwayat Presensi</h2>
+        </div>
+        <button class="icon-btn" onclick="renderHistoryPage()" title="Refresh"><i class="fas fa-rotate"></i></button>
+      </div>
+
+      <div class="card history-summary">
+        <div class="summary-icon"><i class="fas fa-clock-rotate-left"></i></div>
+        <div>
+          <div class="summary-title">Presensi Hari Ini</div>
+          <div class="summary-value"><span id="historyTodayCount">0</span> mahasiswa hadir</div>
+        </div>
+      </div>
+
+      <div class="filter-row">
+        <div class="date-filter">
+          <i class="fas fa-calendar-days"></i>
+          <input type="date" id="historyDate" onchange="renderHistoryPage()">
+        </div>
+        <button class="export-btn" onclick="exportCSV()" title="Export CSV"><i class="fas fa-file-export"></i></button>
+      </div>
+
+      <div class="card history-card">
+        <div class="section-title compact">Daftar Presensi</div>
+        <div class="timeline" id="historyPageList">
+          <div class="empty-note"><i class="fas fa-clock-rotate-left"></i>Belum ada riwayat presensi</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PENGATURAN ===================== -->
+    <section class="view" id="view-settings">
+      <div class="page-heading">
+        <div>
+          <div class="eyebrow">Sistem</div>
+          <h2>Pengaturan</h2><p>Sesuaikan pengalaman aplikasi</p>
+        </div>
+        <div class="settings-avatar"><i class="fas fa-gear"></i></div>
+      </div>
+
+      <aside class="settings-menu" aria-label="Kategori pengaturan">
+        <div class="settings-menu-label">Settings Center</div>
+        <div class="settings-menu-item active"><i class="fas fa-user-gear"></i><span><b>Profil Admin</b><small>Akun dan akses</small></span></div>
+        <div class="settings-menu-item"><i class="fas fa-sliders"></i><span><b>Preferensi Tampilan</b><small>Pengalaman aplikasi</small></span></div>
+        <div class="settings-menu-item"><i class="fas fa-bell"></i><span><b>Notifikasi</b><small>Status pemberitahuan</small></span></div>
+        <div class="settings-menu-item"><i class="fas fa-database"></i><span><b>Data Aplikasi</b><small>Sinkronisasi dan export</small></span></div>
+        <div class="settings-menu-item"><i class="fas fa-qrcode"></i><span><b>Presensi Kelas</b><small>Informasi sistem</small></span></div>
+      </aside>
+
+      <div class="card settings-card">
+        <div class="settings-section-title">Profil Admin</div>
+        <div class="profile-row"><div class="user-avatar large">AD</div><div><strong>Admin</strong><span>admin · <em>Login aktif</em></span></div></div>
+        <div class="settings-section-title">Preferensi Tampilan</div>
+        <label class="setting-row">
+          <div class="setting-icon"><i class="fas fa-moon"></i></div>
+          <div class="setting-copy">
+            <strong>Mode gelap</strong>
+            <span>Gunakan tampilan gelap aplikasi</span>
+          </div>
+          <input class="toggle" type="checkbox" id="darkModeToggle" checked onchange="toggleDarkMode(this.checked)">
+        </label>
+        <label class="setting-row">
+          <div class="setting-icon"><i class="fas fa-bell"></i></div>
+          <div class="setting-copy">
+            <strong>Notifikasi presensi</strong>
+            <span>Tampilkan notifikasi saat presensi berhasil</span>
+          </div>
+          <input class="toggle" type="checkbox" id="notifToggle" checked onchange="saveSettings()">
+        </label>
+      </div>
+
+      <div class="card settings-card">
+        <div class="settings-section-title">Data Aplikasi</div>
+        <button class="setting-action" onclick="loadDataMahasiswa()">
+          <span><i class="fas fa-cloud-arrow-down"></i><b>Sinkronkan data mahasiswa</b></span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="setting-action" onclick="exportCSV()">
+          <span><i class="fas fa-file-csv"></i><b>Export data presensi</b></span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <button class="setting-action danger" onclick="clearLocalPresensi()">
+          <span><i class="fas fa-trash-can"></i><b>Hapus presensi lokal hari ini</b></span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="card about-card">
+        <div class="about-logo"><i class="fas fa-qrcode"></i></div>
+        <strong>Presensi Kelas</strong>
+        <span>Presensi mahasiswa berbasis QR Code</span>
+        <small>Data mahasiswa terhubung dengan Google Sheets.</small>
+      </div>
+      <button class="logout-wide" onclick="logout()"><i class="fas fa-arrow-right-from-bracket"></i> Keluar dari akun</button>
+    </section>
+
+  </main>
+
+  <nav class="bottomnav">
+    <button class="nav-btn active" data-view="home" onclick="switchView('home')"><i class="fas fa-house"></i><span>Dashboard</span></button>
+    <button class="nav-btn" data-view="data" onclick="switchView('data')"><i class="fas fa-users"></i><span>Mahasiswa</span></button>
+    <button class="nav-btn" data-view="history" onclick="switchView('history')"><i class="fas fa-clock-rotate-left"></i><span>Riwayat</span></button>
+    <button class="nav-btn" data-view="settings" onclick="switchView('settings')"><i class="fas fa-gear"></i><span>Pengaturan</span></button>
+  </nav>
+</div>
+
+<div id="toastContainer"></div>
+<canvas id="confettiCanvas"></canvas>
+
+<script src="script.js"></script>
+</body>
+</html>
